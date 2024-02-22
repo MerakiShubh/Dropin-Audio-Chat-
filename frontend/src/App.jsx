@@ -1,14 +1,17 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import Layout from "./Layout/Layout";
+import Navigation from "./Componets/shared/Navigation/Navigation";
 const App = () => {
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<Home />} />
-      </Route>
-    </Routes>
+    <BrowserRouter>
+      <Navigation />
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 };
 

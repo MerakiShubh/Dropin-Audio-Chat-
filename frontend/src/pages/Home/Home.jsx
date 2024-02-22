@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styles from "./Home.module.css";
 import Card from "../../Componets/shared/Card/Card";
 import Button from "../../Componets/shared/Button/Button";
@@ -10,6 +10,12 @@ const Home = () => {
     textDecoration: "none",
     marginLeft: "10px",
   };
+
+  let history = useHistory();
+
+  function startRegister() {
+    history.push("/register");
+  }
   return (
     <div className={styles.cardWrapper}>
       <Card title="Welcome to Dropin!" icon="logo">
@@ -19,7 +25,7 @@ const Home = () => {
           nothing breaks
         </p>
         <div>
-          <Button text="Get your username" />
+          <Button onClick={startRegister} text="Get your username" />
         </div>
         <div className={styles.signinWrapper}>
           <span className={styles.hasInvite}>Have an invite text?</span>
