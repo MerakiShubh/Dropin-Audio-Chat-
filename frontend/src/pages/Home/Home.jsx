@@ -1,8 +1,7 @@
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
 import styles from "./Home.module.css";
-import Card from "../../Componets/shared/Card/Card";
-import Button from "../../Componets/shared/Button/Button";
+import { Button, Card } from "../../Componets/index.js";
 const Home = () => {
   const signInLinkStyle = {
     color: "#0077ff",
