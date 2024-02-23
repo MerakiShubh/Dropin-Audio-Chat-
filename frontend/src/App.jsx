@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-// import Home from "./pages/Home/Home";
-import { Home, Register } from "./pages/index.js";
+import { Home, Register, Login } from "./pages/index.js";
 import { Navigation } from "./Componets/index.js";
 const App = () => {
   return (
@@ -13,6 +12,9 @@ const App = () => {
         </Route>
         <Route path="/register" exact>
           <Register />
+        </Route>
+        <Route path="/login" exact>
+          <Login />
         </Route>
       </Switch>
     </BrowserRouter>
