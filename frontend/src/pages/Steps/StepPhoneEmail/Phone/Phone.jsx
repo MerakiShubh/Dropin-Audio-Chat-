@@ -3,7 +3,7 @@ import { Button, Card } from "../../../../Componets";
 import TextInput from "../../../../Componets/shared/TextInput/TextInput";
 import styles from "../StepPhoneEmail.module.css";
 
-const Phone = () => {
+const Phone = ({ onNext }) => {
   const [phoneNumber, setPhoneNumber] = useState("");
   return (
     <Card title="Enter your phone number" icon="phone">
@@ -13,7 +13,7 @@ const Phone = () => {
       />
       <div>
         <div className={styles.actionButtonWrap}>
-          <Button text="Next" />
+          <Button text="Next" onClick={onNext} />
         </div>
         <p className={styles.bottomParagraph}>
           By entering your number, you're agreeing to out Term of Service and

@@ -16,7 +16,7 @@ const Authentication = () => {
   return (
     <>
       <Steps onNext={onNext} />
-      <div>This is login components</div>
+      {/* <div>This is login components</div> */}
     </>
   );
 };
