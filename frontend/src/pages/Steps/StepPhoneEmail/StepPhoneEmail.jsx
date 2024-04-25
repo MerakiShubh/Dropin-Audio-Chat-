@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Phone from "./Phone/Phone";
 import Email from "./Email/Email";
 import styles from "./StepPhoneEmail.module.css";
+import PropTypes from "prop-types";
 
 const phoneEmailMap = {
   phone: Phone,
   email: Email,
+};
+
+StepPhoneEmail.propTypes = {
+  onNext: PropTypes.node,
 };
 
 const StepPhoneEmail = ({ onNext }) => {

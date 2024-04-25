@@ -1,10 +1,10 @@
-import React from "react";
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { Home } from "./pages/index.js";
 import { Navigation } from "./Componets/index.js";
 import Authentication from "./pages/authentication/Authentication.jsx";
 import Activate from "./pages/Activate/Activate.jsx";
 import Rooms from "./pages/Rooms/Rooms.jsx";
+import PropTypes from "prop-types";
 
 const isAuth = false;
 const user = {
@@ -53,6 +53,10 @@ const GuestRoute = ({ children, ...rest }) => {
   );
 };
 
+GuestRoute.propTypes = {
+  children: PropTypes.node,
+};
+
 const SemiprotectedRoute = ({ children, ...rest }) => {
   return (
     <Route
@@ -80,6 +84,10 @@ const SemiprotectedRoute = ({ children, ...rest }) => {
   );
 };
 
+SemiprotectedRoute.propTypes = {
+  children: PropTypes.node,
+};
+
 const ProtectedRoute = ({ children, ...rest }) => {
   return (
     <Route
@@ -105,6 +113,10 @@ const ProtectedRoute = ({ children, ...rest }) => {
       }}
     />
   );
+};
+
+ProtectedRoute.propTypes = {
+  children: PropTypes.node,
 };
 
 export default App;
