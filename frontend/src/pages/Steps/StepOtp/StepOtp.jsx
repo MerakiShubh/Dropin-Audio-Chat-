@@ -4,10 +4,6 @@ import { Button, Card } from "../../../Componets";
 import TextInput from "../../../Componets/shared/TextInput/TextInput";
 import PropTypes from "prop-types";
 
-StepOtp.propTypes = {
-  onNext: PropTypes.node,
-};
-
 const StepOtp = ({ onNext }) => {
   const [otp, setOtp] = useState();
   return (
@@ -23,6 +19,10 @@ const StepOtp = ({ onNext }) => {
       </div>
     </>
   );
+};
+
+StepOtp.propTypes = {
+  onNext: PropTypes.func.isRequired,
 };
 
 export default StepOtp;

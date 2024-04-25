@@ -9,10 +9,6 @@ const phoneEmailMap = {
   email: Email,
 };
 
-StepPhoneEmail.propTypes = {
-  onNext: PropTypes.node,
-};
-
 const StepPhoneEmail = ({ onNext }) => {
   const [type, setType] = useState("phone");
   const Component = phoneEmailMap[type];
@@ -44,6 +40,10 @@ const StepPhoneEmail = ({ onNext }) => {
       </div>
     </>
   );
+};
+
+StepPhoneEmail.propTypes = {
+  onNext: PropTypes.func.isRequired,
 };
 
 export default StepPhoneEmail;

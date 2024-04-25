@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Card } from "../../../../Componets";
 import TextInput from "../../../../Componets/shared/TextInput/TextInput";
 import styles from "../StepPhoneEmail.module.css";
+import PropTypes from "prop-types";
+
 const Email = ({ onNext }) => {
   const [email, setEmail] = useState();
   return (
@@ -12,12 +14,16 @@ const Email = ({ onNext }) => {
           <Button text="Next" onClick={onNext} />
         </div>
         <p className={styles.bottomParagraph}>
-          By entering your number, you're agreeing to our Terms of Service and
-          Privacy Policy. Thanks!
+          By entering your number, you&apos;re agreeing to our Terms of Service
+          and Privacy Policy. Thanks!
         </p>
       </div>
     </Card>
   );
+};
+
+Email.propTypes = {
+  onNext: PropTypes.func.isRequired,
 };
 
 export default Email;
