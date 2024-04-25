@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import styles from "./Card.module.css";
 
 const Card = ({ title, icon, children }) => {
@@ -11,6 +11,12 @@ const Card = ({ title, icon, children }) => {
       {children}
     </div>
   );
+};
+
+Card.propTypes = {
+  title: PropTypes.node,
+  icon: PropTypes.node,
+  children: PropTypes.node,
 };
 
 export default Card;

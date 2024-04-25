@@ -1,5 +1,4 @@
-import React from "react";
-
+import PropTypes from "prop-types";
 const StepName = ({ onNext }) => {
   return (
     <>
@@ -7,6 +6,10 @@ const StepName = ({ onNext }) => {
       <button onClick={onNext}>Next</button>
     </>
   );
+};
+
+StepName.propTypes = {
+  onNext: PropTypes.func.isRequired,
 };
 
 export default StepName;

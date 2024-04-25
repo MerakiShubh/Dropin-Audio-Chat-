@@ -1,5 +1,4 @@
-import React from "react";
-
+import PropTypes from "prop-types";
 const StepAvatar = ({ onNext }) => {
   return (
     <>
@@ -7,6 +6,10 @@ const StepAvatar = ({ onNext }) => {
       <button onClick={onNext}>Next</button>
     </>
   );
+};
+
+StepAvatar.propTypes = {
+  onNext: PropTypes.func.isRequired,
 };
 
 export default StepAvatar;

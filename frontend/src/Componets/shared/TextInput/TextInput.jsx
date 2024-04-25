@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 import styles from "./TextInput.module.css";
 const TextInput = ({ props }) => {
   return (
@@ -6,6 +6,10 @@ const TextInput = ({ props }) => {
       <input className={styles.input} type="text" {...props} />
     </div>
   );
+};
+
+TextInput.propTypes = {
+  props: PropTypes.any,
 };
 
 export default TextInput;
