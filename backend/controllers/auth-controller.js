@@ -14,7 +14,16 @@ class AuthController {
     const data = `${phone}.${otp}.${expires}`;
     const hash = hashService.hashOtp(data);
 
-    res.json({ hash });
+    try {
+      await otpService.sendBySms(phone, otp);
+      res.json({
+        hash: `${hash}.${expires}`,
+        phone,
+      });
+    } catch (error) {
+      console.log(error);
+      res.sendStatus(500).json({ message: "message sending failed" });
+    }
   }
 }
 
