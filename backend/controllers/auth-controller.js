@@ -2,6 +2,7 @@ const otpService = require("../services/otp-service");
 const hashService = require("../services/hash-service");
 const UserService = require("../services/user-service");
 const userService = require("../services/user-service");
+const tokenService = require("../services/token-service");
 class AuthController {
   async sendOtp(req, res) {
     const { phone } = req.body;
@@ -45,8 +46,8 @@ class AuthController {
       res.sendStatus(400).json({ message: "Invalid OTP" });
     }
     let user;
-    let accessToken;
-    let refreshToken;
+    // let accessToken;
+    // let refreshToken;
     try {
       user = await userService.findUser({ phone });
       if (!user) {
@@ -56,6 +57,17 @@ class AuthController {
       console.log(error);
       res.status(500).json({ message: "DB error" });
     }
+
+    //token
+    const { accessToken, refreshToken } = tokenService.generateTokens({
+      _id: user._id,
+      activated: false,
+    });
+    res.cookie("refreshToken", refreshToken, {
+      masAge: 1000 * 60 * 60 * 24 * 30,
+      httpOnly: true,
+    });
+    res.json({ accessToken });
   }
 }
 
